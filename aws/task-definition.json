@@ -1,0 +1,30 @@
+{
+    "family": "my-react-task-definition",
+    "executionRoleArn": "arn:aws:iam::297601880443:role/ecsTaskExecutionRole",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512",
+    "containerDefinitions": [
+        {
+            "name": "my-react-app-container",
+            "image": "IMAGE_PLACEHOLDER",
+            "portMappings": [
+                {
+                    "containerPort": 80,
+                    "protocol": "tcp"
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/my-react-task-definition",
+                    "awslogs-region": "ca-central-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "networkMode": "awsvpc"
+}
