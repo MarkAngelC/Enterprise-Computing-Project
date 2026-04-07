@@ -3,10 +3,10 @@ pipeline {
 
     environment {
         AWS_REGION        = 'ca-central-1'
-        ECR_REGISTRY      = '020423264558.dkr.ecr.ca-central-1.amazonaws.com'
+        ECR_REGISTRY      = '297601880443.dkr.ecr.ca-central-1.amazonaws.com'
         ECR_REPO          = 'my-react-repo'
         ECS_CLUSTER       = 'my-react-app-cluster-1111'
-        ECS_SERVICE       = 'my-react-task-definition-service-3q5m81af'
+        ECS_SERVICE       = 'my-react-task-definition-service-rm4jz3w2'
         ECS_TASK_FAMILY   = 'my-react-task-definition'
         IMAGE_TAG         = "${BUILD_NUMBER}"
     }
@@ -47,7 +47,7 @@ pipeline {
         stage('Build My Docker Image') {
             steps {
                 withCredentials([usernamePassword(
-                    credentialsId: 'aws-ecs-ecr-credentials',
+                    credentialsId: 'aws-s3-credentials',
                     usernameVariable: 'AWS_ACCESS_KEY_ID',
                     passwordVariable: 'AWS_SECRET_ACCESS_KEY'
                 )]) {
@@ -75,7 +75,7 @@ pipeline {
         stage('Deploy to AWS') {
             steps {
                 withCredentials([usernamePassword(
-                    credentialsId: 'aws-ecs-ecr-credentials',
+                    credentialsId: 'aws-s3-credentials',
                     usernameVariable: 'AWS_ACCESS_KEY_ID',
                     passwordVariable: 'AWS_SECRET_ACCESS_KEY'
                 )]) {
