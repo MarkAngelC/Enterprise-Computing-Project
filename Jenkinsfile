@@ -3,10 +3,10 @@ pipeline {
 
     environment {
         AWS_REGION        = 'ca-central-1'
-        ECR_REGISTRY      = '297601880443.dkr.ecr.ca-central-1.amazonaws.com'
+        ECR_REGISTRY      = '020423264558.dkr.ecr.ca-central-1.amazonaws.com'
         ECR_REPO          = 'my-react-repo'
         ECS_CLUSTER       = 'my-react-app-cluster-1111'
-        ECS_SERVICE       = 'my-react-task-definition-service-rm4jz3w2'
+        ECS_SERVICE       = 'my-react-task-definition-service-3q5m81af'
         ECS_TASK_FAMILY   = 'my-react-task-definition'
         IMAGE_TAG         = "${BUILD_NUMBER}"
     }
