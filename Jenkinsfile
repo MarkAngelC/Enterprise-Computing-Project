@@ -47,7 +47,7 @@ pipeline {
         stage('Build My Docker Image') {
             steps {
                 withCredentials([usernamePassword(
-                    credentialsId: 'aws-s3-credentials',
+                    credentialsId: 'aws-ecs-ecr-credentials',
                     usernameVariable: 'AWS_ACCESS_KEY_ID',
                     passwordVariable: 'AWS_SECRET_ACCESS_KEY'
                 )]) {
