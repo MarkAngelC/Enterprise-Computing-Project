@@ -1,6 +1,6 @@
 {
     "family": "my-react-task-definition",
-    "executionRoleArn": "arn:aws:iam::297601880443:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::020423264558:role/ecsTaskExecutionRole",
     "requiresCompatibilities": [
         "FARGATE"
     ],
