@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         AWS_REGION        = 'us-east-1'
-        ECR_REGISTRY      = '020423264558.dkr.ecr.us-east-1.amazonaws.com/my-react-repo'
+        ECR_REGISTRY      = '020423264558.dkr.ecr.us-east-1.amazonaws.com'
         ECR_REPO          = 'my-react-repo'
         ECS_CLUSTER       = 'my-react-app-cluster-1111'
         ECS_SERVICE       = 'my-react-task-definition-service-nufrtix8'
@@ -75,7 +75,7 @@ pipeline {
         stage('Deploy to AWS') {
             steps {
                 withCredentials([usernamePassword(
-                    credentialsId: 'aws-s3-credentials',
+                    credentialsId: 'aws-ecs-ecr-credentials',
                     usernameVariable: 'AWS_ACCESS_KEY_ID',
                     passwordVariable: 'AWS_SECRET_ACCESS_KEY'
                 )]) {
