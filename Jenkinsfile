@@ -87,7 +87,7 @@ pipeline {
                         docker run --rm \
                             -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
                             -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
-                            -v $(pwd)/aws:/aws \
+                            -v "$(pwd)/aws:/aws" \
                             amazon/aws-cli:latest \
                             ecs register-task-definition \
                             --region $AWS_REGION \
